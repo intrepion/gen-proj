@@ -1,8 +1,8 @@
 #[cfg(test)]
-mod tests {
+mod make_canonical_should {
     #[test]
-    fn it_works() {
-        let result = 2 + 2;
-        assert_eq!(result, 4);
+    fn return_lowercase() {
+        let _expected = "hello";
+        let _actual = make_canonical("Hello");
     }
 }
