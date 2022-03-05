@@ -30,6 +30,11 @@ mod make_canonical_should {
     }
 }
 
-pub fn make_canonical(_input: &str) -> String {
-    "hello".to_owned()
+use regex::Regex;
+
+pub fn make_canonical(input: &str) -> String {
+    let lowercased = input.to_lowercase();
+    let trimmed = lowercased.trim();
+    let re = Regex::new(r"[^A-Za-z0-9_]").unwrap();
+    re.replace_all(trimmed, "-").into_owned()
 }
