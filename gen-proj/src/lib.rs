@@ -4,11 +4,14 @@ mod make_canonical_should {
 
     #[test]
     fn return_lowercase() {
-        let _expected = "hello";
-        let _actual = make_canonical("Hello");
+        let expected = "hello";
+
+        let actual = make_canonical("Hello");
+
+        assert_eq!(actual, expected)
     }
 }
 
-pub fn make_canonical(input: &str) -> String {
-    input.to_lowercase()
+pub fn make_canonical(_input: &str) -> String {
+    "".to_owned()
 }
