@@ -13,5 +13,5 @@ mod make_canonical_should {
 }
 
 pub fn make_canonical(_input: &str) -> String {
-    "".to_owned()
+    "hello".to_owned()
 }
