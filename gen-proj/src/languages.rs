@@ -21,6 +21,15 @@ mod languages {
 
             assert_eq!(actual, expected);
         }
+
+        #[test]
+        fn return_rust_enum_given_extra_spaces_rust_string() {
+            let expected = Ok(Language::Rust);
+
+            let actual = Language::from_str("   rust     ");
+
+            assert_eq!(actual, expected);
+        }
     }
 }
 
