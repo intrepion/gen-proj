@@ -6,6 +6,7 @@ mod languages {
         #[test]
         fn return_rust_enum_given_rust_string() {
             let _expected = Language::Rust;
+            let _actual = Language::from_str("rust");
         }
     }
 }
