@@ -6,7 +6,7 @@ mod languages {
 
         #[test]
         fn return_rust_enum_given_rust_string() {
-            let expected = Language::Rust;
+            let expected = Ok(Language::Rust);
 
             let actual = Language::from_str("rust");
 
@@ -17,6 +17,7 @@ mod languages {
 
 use std::str;
 
+#[derive(Debug, PartialEq)]
 pub enum Language {
     Rust,
 }
@@ -25,6 +26,9 @@ impl str::FromStr for Language {
     type Err = String;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        Err(format!("Unknown language: {}", s))
+        match s {
+            "rust" => Ok(Language::Rust),
+            _ => Err(format!("Unknown language: {}", s)),
+        }
     }
 }
