@@ -5,9 +5,11 @@ mod test_project_name {
 
         #[test]
         fn return_trimmed_project_name() {
-            let _expected = ProjectName("Hello World".to_owned());
+            let expected = ProjectName("Hello World".to_owned());
 
-            let _actual = ProjectName::new("  Hello World    ");
+            let actual = ProjectName::new("  Hello World    ");
+
+            assert_eq!(actual, expected);
         }
     }
 }
