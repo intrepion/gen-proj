@@ -2,12 +2,12 @@
 mod test_project {
     mod new_should {
         use super::super::Project;
-        use crate::projects::{language::Language, project_name};
+        use crate::projects::{language::Language, name};
 
         #[test]
         fn return_hello_world_rust_project() {
             let expected = Project {
-                name: project_name::ProjectName::new("Hello World").unwrap(),
+                name: name::Name::new("Hello World").unwrap(),
                 language: Language::Rust,
             };
 
@@ -19,7 +19,7 @@ mod test_project {
         #[test]
         fn return_klondike_rust_project() {
             let expected = Project {
-                name: project_name::ProjectName::new("Klondike").unwrap(),
+                name: name::Name::new("Klondike").unwrap(),
                 language: Language::Rust,
             };
 
@@ -31,7 +31,7 @@ mod test_project {
         #[test]
         fn return_hello_world_closure_project() {
             let expected = Project {
-                name: project_name::ProjectName::new("Hello World").unwrap(),
+                name: name::Name::new("Hello World").unwrap(),
                 language: Language::Closure,
             };
 
@@ -42,18 +42,18 @@ mod test_project {
     }
 }
 
-use crate::projects::{language, project_name};
+use crate::projects::{language, name};
 
 #[derive(Debug, PartialEq)]
 pub struct Project {
-    name: project_name::ProjectName,
+    name: name::Name,
     language: language::Language,
 }
 
 impl Project {
     pub fn new(name: &str, language: language::Language) -> Self {
         Project {
-            name: project_name::ProjectName::new(name).unwrap(),
+            name: name::Name::new(name).unwrap(),
             language,
         }
     }

@@ -1,22 +1,22 @@
 #[cfg(test)]
-mod test_project_name {
-    mod new_project_name_should {
-        use super::super::ProjectName;
+mod test_name {
+    mod new_name_should {
+        use super::super::Name;
 
         #[test]
-        fn return_project_name() {
-            let expected = Ok(ProjectName("Klondike".to_owned()));
+        fn return_name() {
+            let expected = Ok(Name("Klondike".to_owned()));
 
-            let actual = ProjectName::new("Klondike");
+            let actual = Name::new("Klondike");
 
             assert_eq!(actual, expected);
         }
 
         #[test]
-        fn return_trimmed_project_name() {
-            let expected = Ok(ProjectName("Hello World".to_owned()));
+        fn return_trimmed_name() {
+            let expected = Ok(Name("Hello World".to_owned()));
 
-            let actual = ProjectName::new("  Hello World    ");
+            let actual = Name::new("  Hello World    ");
 
             assert_eq!(actual, expected);
         }
@@ -25,7 +25,7 @@ mod test_project_name {
         fn return_none_if_empty_string() {
             let expected = Err("Project name cannot be empty".to_owned());
 
-            let actual = ProjectName::new("");
+            let actual = Name::new("");
 
             assert_eq!(actual, expected);
         }
@@ -33,15 +33,15 @@ mod test_project_name {
 }
 
 #[derive(Debug, PartialEq)]
-pub struct ProjectName(String);
+pub struct Name(String);
 
-impl ProjectName {
+impl Name {
     pub fn new(raw: &str) -> Result<Self, String> {
         let trimmed = raw.trim();
         if trimmed.is_empty() {
             return Err("Project name cannot be empty".to_owned());
         }
 
-        Ok(ProjectName(trimmed.to_owned()))
+        Ok(Name(trimmed.to_owned()))
     }
 }
