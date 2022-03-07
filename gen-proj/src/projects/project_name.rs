@@ -4,6 +4,15 @@ mod test_project_name {
         use super::super::ProjectName;
 
         #[test]
+        fn return_project_name() {
+            let expected = ProjectName("Klondike".to_owned());
+
+            let actual = ProjectName::new("Klondike");
+
+            assert_eq!(actual, expected);
+        }
+
+        #[test]
         fn return_trimmed_project_name() {
             let expected = ProjectName("Hello World".to_owned());
 
