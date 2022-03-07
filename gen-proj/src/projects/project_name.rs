@@ -38,6 +38,10 @@ pub struct ProjectName(String);
 impl ProjectName {
     pub fn new(raw: &str) -> Result<Self, String> {
         let trimmed = raw.trim();
-        (!trimmed.is_empty()).then(|| ProjectName(trimmed.to_owned()))
+        if trimmed.is_empty() {
+            return Err("Project name cannot be empty".to_owned());
+        }
+
+        Ok(ProjectName(trimmed.to_owned()))
     }
 }
