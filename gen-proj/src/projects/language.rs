@@ -64,6 +64,7 @@ impl str::FromStr for Language {
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         match s.trim().to_lowercase().as_str() {
+            "closure" => Ok(Language::Closure),
             "rust" => Ok(Language::Rust),
             _ => Err(format!("Unknown language: {}", s)),
         }
