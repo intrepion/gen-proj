@@ -21,10 +21,4 @@ pub struct Project {
     _name: project_name::ProjectName,
 }
 
-impl Project {
-    pub fn new(raw: &str) -> Self {
-        Project {
-            _name: project_name::ProjectName::new(raw).unwrap(),
-        }
-    }
-}
+impl Project {}
