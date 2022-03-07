@@ -1,15 +1,20 @@
 #[cfg(test)]
 mod test_project {
-    mod default_should {
+    mod new_should {
         use super::super::Project;
+        use crate::projects::project_name;
 
         #[test]
-        fn return_project_with_defaults() {
-            let _expected = Project {};
-
-            let _actual = Project::new("Hello World");
+        fn return_project() {
+            let _expected = Project {
+                _name: project_name::ProjectName::new("Hello World").unwrap(),
+            };
         }
     }
 }
 
-pub struct Project {}
+use crate::projects::project_name;
+
+pub struct Project {
+    _name: project_name::ProjectName,
+}
