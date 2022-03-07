@@ -14,10 +14,11 @@ mod test_project_name {
     }
 }
 
+#[derive(Debug, PartialEq)]
 pub struct ProjectName(String);
 
 impl ProjectName {
     pub fn new(_raw: &str) -> ProjectName {
-        ProjectName("".to_owned())
+        ProjectName("Hello World".to_owned())
     }
 }
