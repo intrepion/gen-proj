@@ -15,6 +15,18 @@ mod test_project {
 
             assert_eq!(actual, expected);
         }
+
+        #[test]
+        fn return_project_with_different_name() {
+            let expected = Project {
+                name: project_name::ProjectName::new("Klondike").unwrap(),
+                language: Language::Rust,
+            };
+
+            let actual = Project::new("Klondike", Language::Rust);
+
+            assert_eq!(actual, expected);
+        }
     }
 }
 
