@@ -5,7 +5,7 @@ mod test_language {
         use std::str::FromStr;
 
         #[test]
-        fn return_rust_enum_given_rust_string() {
+        fn return_language_given_rust_language() {
             let expected = Ok(Language::Rust);
 
             let actual = Language::from_str("rust");
@@ -14,7 +14,7 @@ mod test_language {
         }
 
         #[test]
-        fn return_rust_enum_given_capitalized_rust_string() {
+        fn return_language_given_capitalized_language() {
             let expected = Ok(Language::Rust);
 
             let actual = Language::from_str("Rust");
@@ -23,7 +23,7 @@ mod test_language {
         }
 
         #[test]
-        fn return_rust_enum_given_extra_spaces_rust_string() {
+        fn return_language_given_extra_spaces_language() {
             let expected = Ok(Language::Rust);
 
             let actual = Language::from_str("   rust     ");
@@ -36,6 +36,15 @@ mod test_language {
             let expected = Err("Unknown language: unknown".to_owned());
 
             let actual = Language::from_str("unknown");
+
+            assert_eq!(actual, expected);
+        }
+
+        #[test]
+        fn return_language_given_closure_language() {
+            let expected = Ok(Language::Closure);
+
+            let actual = Language::from_str("closure");
 
             assert_eq!(actual, expected);
         }
