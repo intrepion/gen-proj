@@ -2,7 +2,7 @@
 mod test_project {
     mod new_should {
         use super::super::Project;
-        use crate::projects::project_name;
+        use crate::projects::{language::Language, project_name};
 
         #[test]
         fn return_project() {
@@ -18,17 +18,19 @@ mod test_project {
     }
 }
 
-use crate::projects::project_name;
+use crate::projects::{language, project_name};
 
 #[derive(Debug, PartialEq)]
 pub struct Project {
     name: project_name::ProjectName,
+    language: language::Language,
 }
 
 impl Project {
-    pub fn new(raw: &str) -> Self {
+    pub fn new(name: &str, _language: language::Language) -> Self {
         Project {
-            name: project_name::ProjectName::new(raw).unwrap(),
+            name: project_name::ProjectName::new(name).unwrap(),
+            language: language::Language::Rust,
         }
     }
 }
