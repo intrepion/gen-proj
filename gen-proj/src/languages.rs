@@ -33,7 +33,7 @@ mod languages {
 
         #[test]
         fn return_err_given_unknown_language() {
-            let expected = Err("Unknown language: unknown");
+            let expected = Err("Unknown language: unknown".to_owned());
 
             let actual = Language::from_str("unknown");
 
