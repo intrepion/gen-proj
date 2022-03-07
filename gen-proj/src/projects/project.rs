@@ -8,9 +8,10 @@ mod test_project {
         fn return_project() {
             let expected = Project {
                 name: project_name::ProjectName::new("Hello World").unwrap(),
+                language: Language::Rust,
             };
 
-            let actual = Project::new("Hello World");
+            let actual = Project::new("Hello World", Language::Rust);
 
             assert_eq!(actual, expected);
         }
