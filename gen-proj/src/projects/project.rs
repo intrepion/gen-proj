@@ -25,9 +25,9 @@ pub struct Project {
 }
 
 impl Project {
-    pub fn new(_raw: &str) -> Self {
+    pub fn new(raw: &str) -> Self {
         Project {
-            _name: project_name::ProjectName::new("hi").unwrap(),
+            _name: project_name::ProjectName::new(raw).unwrap(),
         }
     }
 }
