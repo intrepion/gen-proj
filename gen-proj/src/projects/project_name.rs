@@ -5,7 +5,7 @@ mod test_project_name {
 
         #[test]
         fn return_project_name() {
-            let expected = ProjectName("Klondike".to_owned());
+            let expected = Some(ProjectName("Klondike".to_owned()));
 
             let actual = ProjectName::new("Klondike");
 
@@ -14,7 +14,7 @@ mod test_project_name {
 
         #[test]
         fn return_trimmed_project_name() {
-            let expected = ProjectName("Hello World".to_owned());
+            let expected = Some(ProjectName("Hello World".to_owned()));
 
             let actual = ProjectName::new("  Hello World    ");
 
