@@ -5,7 +5,7 @@ mod test_project {
         use crate::projects::{language::Language, project_name};
 
         #[test]
-        fn return_project() {
+        fn return_hello_world_rust_project() {
             let expected = Project {
                 name: project_name::ProjectName::new("Hello World").unwrap(),
                 language: Language::Rust,
@@ -17,13 +17,25 @@ mod test_project {
         }
 
         #[test]
-        fn return_project_with_different_name() {
+        fn return_klondike_rust_project() {
             let expected = Project {
                 name: project_name::ProjectName::new("Klondike").unwrap(),
                 language: Language::Rust,
             };
 
             let actual = Project::new("Klondike", Language::Rust);
+
+            assert_eq!(actual, expected);
+        }
+
+        #[test]
+        fn return_hello_world_closure_project() {
+            let expected = Project {
+                name: project_name::ProjectName::new("Hello World").unwrap(),
+                language: Language::Closure,
+            };
+
+            let actual = Project::new("Hello World", Language::Closure);
 
             assert_eq!(actual, expected);
         }
