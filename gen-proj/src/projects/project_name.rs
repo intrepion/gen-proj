@@ -5,7 +5,7 @@ mod test_project_name {
 
         #[test]
         fn return_project_name() {
-            let expected = Some(ProjectName("Klondike".to_owned()));
+            let expected = Ok(ProjectName("Klondike".to_owned()));
 
             let actual = ProjectName::new("Klondike");
 
@@ -14,7 +14,7 @@ mod test_project_name {
 
         #[test]
         fn return_trimmed_project_name() {
-            let expected = Some(ProjectName("Hello World".to_owned()));
+            let expected = Ok(ProjectName("Hello World".to_owned()));
 
             let actual = ProjectName::new("  Hello World    ");
 
@@ -23,7 +23,7 @@ mod test_project_name {
 
         #[test]
         fn return_none_if_empty_string() {
-            let expected = None;
+            let expected = Err("Project name cannot be empty".to_owned());
 
             let actual = ProjectName::new("");
 
@@ -36,7 +36,7 @@ mod test_project_name {
 pub struct ProjectName(String);
 
 impl ProjectName {
-    pub fn new(raw: &str) -> Option<Self> {
+    pub fn new(raw: &str) -> Result<Self, String> {
         let trimmed = raw.trim();
         (!trimmed.is_empty()).then(|| ProjectName(trimmed.to_owned()))
     }
