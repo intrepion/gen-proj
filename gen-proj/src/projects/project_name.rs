@@ -1,9 +1,13 @@
 #[cfg(test)]
 mod test_project_name {
     mod new_project_name_should {
+        use super::super::ProjectName;
+
         #[test]
         fn return_trimmed_project_name() {
-            let expected = ProjectName("Hello World".to_owned());
+            let _expected = ProjectName("Hello World".to_owned());
         }
     }
 }
+
+pub struct ProjectName(String);
