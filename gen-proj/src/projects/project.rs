@@ -7,7 +7,7 @@ mod test_project {
         #[test]
         fn return_project() {
             let expected = Project {
-                _name: project_name::ProjectName::new("Hello World").unwrap(),
+                name: project_name::ProjectName::new("Hello World").unwrap(),
             };
 
             let actual = Project::new("Hello World");
@@ -21,13 +21,13 @@ use crate::projects::project_name;
 
 #[derive(Debug, PartialEq)]
 pub struct Project {
-    _name: project_name::ProjectName,
+    name: project_name::ProjectName,
 }
 
 impl Project {
     pub fn new(raw: &str) -> Self {
         Project {
-            _name: project_name::ProjectName::new(raw).unwrap(),
+            name: project_name::ProjectName::new(raw).unwrap(),
         }
     }
 }
