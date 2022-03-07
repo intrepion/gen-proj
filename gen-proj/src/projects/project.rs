@@ -9,6 +9,8 @@ mod test_project {
             let _expected = Project {
                 _name: project_name::ProjectName::new("Hello World").unwrap(),
             };
+
+            let _actual = Project::new("Hello World");
         }
     }
 }
