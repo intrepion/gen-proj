@@ -6,17 +6,20 @@ mod test_project {
 
         #[test]
         fn return_project() {
-            let _expected = Project {
+            let expected = Project {
                 _name: project_name::ProjectName::new("Hello World").unwrap(),
             };
 
-            let _actual = Project::new("Hello World");
+            let actual = Project::new("Hello World");
+
+            assert_eq!(actual, expected);
         }
     }
 }
 
 use crate::projects::project_name;
 
+#[derive(Debug, PartialEq)]
 pub struct Project {
     _name: project_name::ProjectName,
 }
