@@ -1,5 +1,5 @@
 #[cfg(test)]
-mod languages {
+mod test_languages {
     mod from_string_should {
         use super::super::Language;
         use std::str::FromStr;
