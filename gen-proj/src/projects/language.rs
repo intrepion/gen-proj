@@ -46,6 +46,7 @@ use std::str;
 
 #[derive(Debug, PartialEq)]
 pub enum Language {
+    Closure,
     Rust,
 }
 

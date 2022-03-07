@@ -51,10 +51,10 @@ pub struct Project {
 }
 
 impl Project {
-    pub fn new(name: &str, _language: language::Language) -> Self {
+    pub fn new(name: &str, language: language::Language) -> Self {
         Project {
             name: project_name::ProjectName::new(name).unwrap(),
-            language: language::Language::Rust,
+            language,
         }
     }
 }
