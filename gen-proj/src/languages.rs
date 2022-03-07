@@ -30,6 +30,15 @@ mod languages {
 
             assert_eq!(actual, expected);
         }
+
+        #[test]
+        fn return_err_given_unknown_language() {
+            let expected = Err("Unknown language: unknown");
+
+            let actual = Language::from_str("unknown");
+
+            assert_eq!(actual, expected);
+        }
     }
 }
 
