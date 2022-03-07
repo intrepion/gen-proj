@@ -20,6 +20,15 @@ mod test_project_name {
 
             assert_eq!(actual, expected);
         }
+
+        #[test]
+        fn return_none_if_empty_string() {
+            let expected = None;
+
+            let actual = ProjectName::new("");
+
+            assert_eq!(actual, expected);
+        }
     }
 }
 
