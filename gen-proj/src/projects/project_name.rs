@@ -37,6 +37,7 @@ pub struct ProjectName(String);
 
 impl ProjectName {
     pub fn new(raw: &str) -> Option<Self> {
-        Some(ProjectName(raw.trim().to_owned()))
+        let trimmed = raw.trim();
+        (!trimmed.is_empty()).then(|| ProjectName(trimmed.to_owned()))
     }
 }
