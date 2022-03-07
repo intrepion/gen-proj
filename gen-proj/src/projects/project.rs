@@ -6,6 +6,8 @@ mod test_project {
         #[test]
         fn return_project_with_defaults() {
             let _expected = Project {};
+
+            let _actual = Project::new("Hello World");
         }
     }
 }
