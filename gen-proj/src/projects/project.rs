@@ -1,5 +1,5 @@
 #[cfg(test)]
-mod test_projects {
+mod test_project {
     mod default_should {
         use super::super::Project;
 
