@@ -27,7 +27,7 @@ mod test_project_name {
 pub struct ProjectName(String);
 
 impl ProjectName {
-    pub fn new(raw: &str) -> ProjectName {
-        ProjectName(raw.trim().to_owned())
+    pub fn new(raw: &str) -> Option<Self> {
+        Some(ProjectName(raw.trim().to_owned()))
     }
 }
